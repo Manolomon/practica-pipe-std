@@ -1,4 +1,4 @@
-FROM dockerfile/ubuntu
+FROM ubuntu:18.04
 
 # Install Languages
 RUN \
