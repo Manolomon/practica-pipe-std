@@ -8,15 +8,15 @@ RUN \
   apt-get update && \
   apt-get install -y ruby
 # Python
-RUN
+RUN \
   add-apt-repository ppa:jonathonf/python-3.6 && \
   apt-get install python3.6 -y
 # Java
-RUN
+RUN \
   add-apt-repository ppa:webupd8team/java && \
   apt-get install oracle-java8-installer
 # Go Lang
-RUN
+RUN \
   apt-get -y install golang-1.10 \
     && apt-get clean
     
