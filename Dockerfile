@@ -32,7 +32,10 @@ RUN \
   apt-get -y install golang-1.10 \
     && apt-get clean
     
-RUN echo 'export PATH="/usr/lib/go-1.10/bin:$PATH"' >> /etc/bash.bashrc
+RUN export GOROOT=/usr/local/go && \
+  export GOPATH=/home/manolo/Desktop/ && \
+  export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
 
 COPY . /usr/src/app
 
