@@ -1,6 +1,6 @@
 FROM dockerfile/ubuntu
 
-# Install Ruby.
+# Install Languages
 RUN \
   apt-get update && \
   apt-get install -y ruby && \
