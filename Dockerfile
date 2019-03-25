@@ -8,20 +8,20 @@ RUN apt-get install -y ruby
 
 # Python
 RUN \
-  add-apt-repository ppa:jonathonf/python-3.6 && \
-  apt-get install python3.6 -y
+  apt-get update && \
+  apt-get install -y python
 
 # Java
 RUN apt-get update && \
-    apt-get install -y openjdk-8-jdk && \
-    apt-get install -y ant && \
-    apt-get clean;
+  apt-get install -y openjdk-8-jdk && \
+  apt-get install -y ant && \
+  apt-get clean;
 
 # Fix certificate issues
 RUN apt-get update && \
-    apt-get install ca-certificates-java && \
-    apt-get clean && \
-    update-ca-certificates -f;
+  apt-get install ca-certificates-java && \
+  apt-get clean && \
+  update-ca-certificates -f;
 
 # Setup JAVA_HOME -- useful for docker commandline
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
@@ -29,17 +29,24 @@ RUN export JAVA_HOME
 
 # Go Lang
 RUN \
-  apt-get -y install golang-1.10 \
-    && apt-get clean
-    
-RUN export GOROOT=/usr/local/go && \
-  export GOPATH=$HOME/ && \
-  export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+  apt-get update && \
+  apt-get install -y gcc make && \
+  apt-get install -y golang
 
+ENV GOROOT /usr/lib/go
+ENV GOPATH /usr/src/app
+ENV PATH /go/bin:$PATH
 
-COPY . /usr/src/app
+# from your command line
+ENV LC_ALL=C.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US.UTF-8
 
-WORKDIR /usr/src/app
+RUN mkdir -p ${GOPATH}/src ${GOPATH}/bin
+
+COPY . GOPATH
+
+WORKDIR GOPATH
 
 RUN javac EmailWriter.java
 
