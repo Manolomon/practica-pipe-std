@@ -33,7 +33,7 @@ RUN \
     && apt-get clean
     
 RUN export GOROOT=/usr/local/go && \
-  export GOPATH=/home/manolo/Desktop/ && \
+  export GOPATH=$HOME/ && \
   export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 
