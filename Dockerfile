@@ -1,12 +1,10 @@
 FROM ubuntu:18.04
 
 # Install Languages
-RUN apt-get install software-properties-common -y
+RUN apt-get update && apt-get install software-properties-common -y
 
 # Ruby
-RUN \
-  apt-get update && \
-  apt-get install -y ruby
+RUN apt-get install -y ruby
 # Python
 RUN \
   add-apt-repository ppa:jonathonf/python-3.6 && \
