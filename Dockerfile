@@ -12,7 +12,7 @@ RUN \
 # Java
 RUN \
   add-apt-repository ppa:webupd8team/java && \
-  apt-get install oracle-java8-installer
+  apt-get install oracle-java8-installer -y
 # Go Lang
 RUN \
   apt-get -y install golang-1.10 \
