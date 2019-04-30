@@ -1,5 +1,5 @@
 # Ejercicio 2 Pipes
-![Docker-Badge](https://img.shields.io/docker/cloud/build/manolomon/practica-pipe-std.svg?logo=docker&logoColor=white&style=for-the-badge)
+[![Docker-Badge](https://img.shields.io/docker/cloud/build/manolomon/practica-pipe-std.svg?logo=docker&logoColor=white&style=for-the-badge)](https://hub.docker.com/r/manolomon/practica-pipe-std)
 
 A partir de un archivo `.log` de texto con datos diversos, extraer los correos electrónicos que se encuentren y almacenarlos en un archivo
 
