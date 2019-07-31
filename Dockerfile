@@ -50,4 +50,4 @@ WORKDIR GOPATH
 
 RUN javac EmailWriter.java
 
-RUN go run pipe_runner.go
+CMD go run pipe_runner.go
