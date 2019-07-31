@@ -24,9 +24,9 @@ func main() {
     c3 := exec.Command("java", "EmailWriter", outputfile)
     
     // Asociasión a través de Pipes de Golang
-    c2.Stdin, _ = c1.StdoutPipe() // El out del primer proceso será el in del segundo
-    c3.Stdin, _ = c2.StdoutPipe() // El out del segundo proceso será el in del tercero
-    c3.Stdout = os.Stdout // El out del tercer proceso se muestra en consola
+    c2.Stdin, _ = c1.StdoutPipe() // El output del primer proceso será el input del segundo
+    c3.Stdin, _ = c2.StdoutPipe() // El output del segundo proceso será el input del tercero
+    c3.Stdout = os.Stdout // El output del tercer proceso se muestra en consola
     
     // Ejecución
     _ = c3.Start()
